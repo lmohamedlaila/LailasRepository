@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SportMatchesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Matches">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamOne" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeamTwo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="StadiumName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatchDate" Type="date" />
+          <Property Name="MatchStartTime" Type="int" />
+          <Property Name="MatchEndTime" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="OpeningGatesTime" Type="int" />
+          <Property Name="TeamOneLogo" Type="varbinary(max)" />
+          <Property Name="TeamTwoLogo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="SportMatchesModelStoreContainer">
+          <EntitySet Name="Matches" EntityType="Self.Matches" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportMatchesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamOne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeamTwo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StadiumName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatchDate" Type="DateTime" Precision="0" />
+          <Property Name="MatchStartTime" Type="Int32" />
+          <Property Name="MatchEndTime" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OpeningGatesTime" Type="Int32" />
+          <Property Name="TeamOneLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TeamTwoLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="SportMatchesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Matches" EntityType="Self.Match" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportMatchesModelStoreContainer" CdmEntityContainer="SportMatchesEntities">
+          <EntitySetMapping Name="Matches">
+            <EntityTypeMapping TypeName="SportMatchesModel.Match">
+              <MappingFragment StoreEntitySet="Matches">
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="TeamOne" ColumnName="TeamOne" />
+                <ScalarProperty Name="TeamTwo" ColumnName="TeamTwo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StadiumName" ColumnName="StadiumName" />
+                <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+                <ScalarProperty Name="MatchStartTime" ColumnName="MatchStartTime" />
+                <ScalarProperty Name="MatchEndTime" ColumnName="MatchEndTime" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="OpeningGatesTime" ColumnName="OpeningGatesTime" />
+                <ScalarProperty Name="TeamOneLogo" ColumnName="TeamOneLogo" />
+                <ScalarProperty Name="TeamTwoLogo" ColumnName="TeamTwoLogo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
